@@ -18,6 +18,8 @@ public class Test {
 		dao.selectAll();
 		//8
 		dao.selectByName("taro");
+		//10
+		dao.selectByPassword("123");
 	}
 	
 }
