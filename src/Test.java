@@ -16,6 +16,8 @@ public class Test {
 		dao.select("taro", "123");
 		//6
 		dao.selectAll();
+		//8
+		dao.selectByName("taro");
 	}
 	
 }
