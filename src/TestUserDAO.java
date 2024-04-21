@@ -259,6 +259,7 @@ public class TestUserDAO {
 	}
 	
 	//13
+	//実行するとエラー出る
 	//voidは戻り値がないメソッドで指定する特別な型
 	public void insert(int user_id, String name, String password) {
 		
@@ -283,7 +284,7 @@ public class TestUserDAO {
 			
 			//もしiが0より大きい場合、i件更新されましたと表示する
 			if (i > 0) {
-				System.out.println(i + "件登録されました");	
+				System.out.println(i + "件登録されました");
 			}
 			
 		//catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる	
