@@ -63,6 +63,53 @@ public class TestUserDAO {
 		
 	}
 	
+	//5
+	//voidは戻り値がないメソッドで指定する特別な型
+	public void selectAll() {
+
+		//DBへの接続準備、DBと会話するためのコード、これでログインできる
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+		
+		//test_tableに入っているデータがsqlに代入される
+		String sql = "select * from test_table";
+		
+		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
+		try {
+			
+			//PreparedStatementとはDBまで運んでくれる箱のこと
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			//executeQuery();は実行メソッド、必ずResultSetが返ってくる
+			ResultSet rs = ps.executeQuery();
+			
+			//while(rs.next())はカーソルを1行ずつ実行していきデータがなくなったら実行を終了す
+			while (rs.next()) {
+				System.out.println(rs.getString("user_name"));
+				System.out.println(rs.getString("password"));
+			}
+			
+		//catchが受け取りprintStackTraceでエラーに至る履歴を表示してくれる
+		//SQLException（クラスが見つからない場合の例外	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
+		try {
+			
+			//データベースとの接続をクローズ
+			//これをしないとデータベースを接続したまま作業が実行されてしまってメモリに負荷がかかる
+			con.close();
+			
+			//catchが受け取りprintStackTraceでエラーに至る履歴を表示してくれる
+			//SQLException（クラスが見つからない場合の例外）
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
 }
 
 

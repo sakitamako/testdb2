@@ -14,6 +14,8 @@ public class Test {
 		//メソッドを実行
 		//4
 		dao.select("taro", "123");
+		//6
+		dao.selectAll();
 	}
 	
 }
