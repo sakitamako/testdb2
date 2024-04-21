@@ -206,6 +206,58 @@ public class TestUserDAO {
 		
 	}
 	
+	//11
+	//voidは戻り値がないメソッドで指定する特別な型
+	public void updateUserNameByUserName(String oldName, String newName) {
+		
+		//DBへの接続準備、DBと会話するためのコード、これでログインできる
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+		
+		//test_tableに入っているデータuser_name=? password=?に入る2つの条件を満たしたデータがsqlに代入される
+		String sql = "update test_table set user_name=? where user_name=?";
+		
+		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
+		try {
+			
+			//PreparedStatementとは DB まで運んでくれる箱
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, newName);
+			ps.setString(2, oldName);
+			
+			//executeUpdate()はデータの件数(数値）を返している
+			int i = ps.executeUpdate();
+			
+			//もしiが0より大きい場合、i件更新されましたと表示する
+			//そうでない場合、該当するデータがありませんでしたと表示する
+			if (i > 0) {
+				System.out.println(i + "件更新されました");
+				
+			} else {
+				System.out.println("該当するデータはありませんでした");
+			}
+			
+		//catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる	
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
+		try {
+			
+			//データベースとの接続をクローズ
+			//これをしないとデータベースを接続したまま作業が実行されてしまってメモリに負荷がかかる
+			con.close();
+			
+		//catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 }
 
 

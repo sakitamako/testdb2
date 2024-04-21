@@ -20,6 +20,8 @@ public class Test {
 		dao.selectByName("taro");
 		//10
 		dao.selectByPassword("123");
+		//12
+		dao.updateUserNameByUserName("taro", "saburo");
 	}
 	
 }
