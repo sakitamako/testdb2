@@ -34,7 +34,8 @@ public class TestUserDAO {
 
 			//executeQuery();は実行メソッドで、必ず ResultSetが返ってくる
 			//ResultSetは問い合わせにより返されるデータの行（レコード） をあらわす
-			//
+			//上記の内容がDBのpsで表示される
+			//じゃあ次はどう表示する？下記からgetで値を持ってきてrsで表示している！
 			ResultSet rs = ps.executeQuery();
 
 			//ここでは2つのことをしている
