@@ -297,7 +297,7 @@ public class TestUserDAO {
 		//VALUES レコードを追加するために使用する
 		//?のところに、あとで数値を入れる
 		//test2_tableに入っているデータに新しいレコードを追加する
-		String sql = "insert into test2_table values(?, ?, ?,)";
+		String sql = "insert into test2_table values(?, ?, ?)";
 
 		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
 		try {
