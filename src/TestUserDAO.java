@@ -340,6 +340,7 @@ public class TestUserDAO {
 
 	}
 	
+	//15
 	//voidは戻り値がないメソッドで指定する特別な型
 	public void delete(String name) {
 		
