@@ -339,6 +339,57 @@ public class TestUserDAO {
 		}
 
 	}
+	
+	//voidは戻り値がないメソッドで指定する特別な型
+	public void delete(String name) {
+		
+		//DBへの接続準備、DBと会話するためのコード、これでログインできる
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+		
+		//DELETE テーブルからデータを削除する
+		//FROM〇〇 〇〇という名前のテーブルからデータを選択する
+		//WHERE ＜条件＞抽出条件を指定
+		//test2_tableに入っているデータuser_name=? のデータを削除する
+		String sql = "delete from test2_table where user_name = ?";
+		
+		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
+		try {
+			
+			//PreparedStatementとは DB まで運んでくれる箱
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			//データベースの中に入るデータ
+			ps.setString(1, name);
+			
+			//executeUpdate()はデータの件数(数値）を返している
+			int i = ps.executeUpdate();
+			
+			//もしiが0より大きい時i件削除されましたと表示する
+			if (i > 0) {
+				System.out.println(i + "件削除されました");
+			}
+			
+		//catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
+		//SQLException（データベース・アクセス・エラーまたはその他のエラーに関する情報を提供する例外）
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
+		try {
+			
+			//データベースとの接続をクローズ
+			//これをしないとデータベースを接続したまま作業が実行されてしまってメモリに負荷がかかる
+			con.close();
+			
+		//catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
+		//SQLException（データベース・アクセス・エラーまたはその他のエラーに関する情報を提供する例外）
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 
 }
 

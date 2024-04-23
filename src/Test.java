@@ -23,8 +23,9 @@ public class Test {
 		//12
 		dao.updateUserNameByUserName("taro", "saburo");
 		//14
-		//実行するとエラー出る
 		dao.insert(4, "shiro", "012");
+		//15
+		dao.delete("jiro");
 	}
 
 }
