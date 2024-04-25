@@ -62,6 +62,8 @@ public class TestUserDAO {
 			e.printStackTrace();
 		}
 
+		//例外が起きる可能性のある処理をtryの中に書く
+		//例外が起きた場合の処理をcatchの中に書く
 		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
 		try {
 
@@ -82,15 +84,20 @@ public class TestUserDAO {
 	public void selectAll() {
 
 		//DBへの接続準備、DBと会話するためのコード、これでログインできる
+		//Connectionは特定のデータベースとの接続
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
 		//test2_tableに入っているデータがsqlに代入される
 		String sql = "select * from test2_table";
 
+		//例外が起きる可能性のある処理をtryの中に書く
+		//例外が起きた場合の処理をcatchの中に書く
 		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
 		try {
 
+			//プリコンパイル＝ある中心的な処理を行うプログラムに対して、その前処理（preprocess）を行うプログラム
+			//プリコンパイルされた SQL 文を表すオブジェクトで、この文を複数回効率的に実行する目的で使用できる
 			//PreparedStatementとはDBまで運んでくれる箱のこと
 			PreparedStatement ps = con.prepareStatement(sql);
 
@@ -111,6 +118,8 @@ public class TestUserDAO {
 			e.printStackTrace();
 		}
 
+		//例外が起きる可能性のある処理をtryの中に書く
+		//例外が起きた場合の処理をcatchの中に書く
 		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
 		try {
 
@@ -131,6 +140,7 @@ public class TestUserDAO {
 	public void selectByName(String name) {
 
 		//DBへの接続準備、DBと会話するためのコード、これでログインできる
+		//Connectionは特定のデータベースとの接続
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
@@ -141,9 +151,13 @@ public class TestUserDAO {
 		//test2_tableに入っているデータuser_name=? に入る条件を満たしたデータがsqlに代入される
 		String sql = "select * from test2_table where user_name=?";
 
+		//例外が起きる可能性のある処理をtryの中に書く
+		//例外が起きた場合の処理をcatchの中に書く
 		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
 		try {
 
+			//プリコンパイル＝ある中心的な処理を行うプログラムに対して、その前処理（preprocess）を行うプログラム
+			//プリコンパイルされた SQL 文を表すオブジェクトで、この文を複数回効率的に実行する目的で使用できる
 			//PreparedStatementとは DB まで運んでくれる箱
 			PreparedStatement ps = con.prepareStatement(sql);
 
@@ -167,6 +181,8 @@ public class TestUserDAO {
 			e.printStackTrace();
 		}
 
+		//例外が起きる可能性のある処理をtryの中に書く
+		//例外が起きた場合の処理をcatchの中に書く
 		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
 		try {
 
@@ -187,6 +203,7 @@ public class TestUserDAO {
 	public void selectByPassword(String password) {
 
 		//DBへの接続準備、DBと会話するためのコード、これでログインできる
+		//Connectionは特定のデータベースとの接続
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
@@ -197,9 +214,13 @@ public class TestUserDAO {
 		//test2_tableに入っているデータ password=?に入る条件を満たしたデータがsqlに代入される
 		String sql = "select * from test2_table where password=?";
 
+		//例外が起きる可能性のある処理をtryの中に書く
+		//例外が起きた場合の処理をcatchの中に書く
 		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
 		try {
 
+			//プリコンパイル＝ある中心的な処理を行うプログラムに対して、その前処理（preprocess）を行うプログラム
+			//プリコンパイルされた SQL 文を表すオブジェクトで、この文を複数回効率的に実行する目的で使用できる
 			//PreparedStatementとは DB まで運んでくれる箱
 			PreparedStatement ps = con.prepareStatement(sql);
 
@@ -223,6 +244,8 @@ public class TestUserDAO {
 			e.printStackTrace();
 		}
 
+		//例外が起きる可能性のある処理をtryの中に書く
+		//例外が起きた場合の処理をcatchの中に書く
 		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
 		try {
 
@@ -243,6 +266,7 @@ public class TestUserDAO {
 	public void updateUserNameByUserName(String oldName, String newName) {
 
 		//DBへの接続準備、DBと会話するためのコード、これでログインできる
+		//Connectionは特定のデータベースとの接続
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
@@ -252,9 +276,13 @@ public class TestUserDAO {
 		//test2_tableに入っているデータuser_name=? のデータをuser_name=?に変える
 		String sql = "update test2_table set user_name=? where user_name=?";
 
+		//例外が起きる可能性のある処理をtryの中に書く
+		//例外が起きた場合の処理をcatchの中に書く
 		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
 		try {
 
+			//プリコンパイル＝ある中心的な処理を行うプログラムに対して、その前処理（preprocess）を行うプログラム
+			//プリコンパイルされた SQL 文を表すオブジェクトで、この文を複数回効率的に実行する目的で使用できる
 			//PreparedStatementとは DB まで運んでくれる箱
 			PreparedStatement ps = con.prepareStatement(sql);
 
@@ -280,6 +308,8 @@ public class TestUserDAO {
 			e.printStackTrace();
 		}
 
+		//例外が起きる可能性のある処理をtryの中に書く
+		//例外が起きた場合の処理をcatchの中に書く
 		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
 		try {
 
@@ -301,6 +331,7 @@ public class TestUserDAO {
 	public void insert(int user_id, String name, String password) {
 
 		//DBへの接続準備、DBと会話するためのコード、これでログインできる
+		//Connectionは特定のデータベースとの接続
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
@@ -310,9 +341,13 @@ public class TestUserDAO {
 		//test2_tableに入っているデータに新しいレコードを追加する
 		String sql = "insert into test2_table values(?, ?, ?)";
 
+		//例外が起きる可能性のある処理をtryの中に書く
+		//例外が起きた場合の処理をcatchの中に書く
 		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
 		try {
 
+			//プリコンパイル＝ある中心的な処理を行うプログラムに対して、その前処理（preprocess）を行うプログラム
+			//プリコンパイルされた SQL 文を表すオブジェクトで、この文を複数回効率的に実行する目的で使用できる
 			//PreparedStatementとは DB まで運んでくれる箱
 			PreparedStatement ps = con.prepareStatement(sql);
 
@@ -335,6 +370,8 @@ public class TestUserDAO {
 			e.printStackTrace();
 		}
 
+		//例外が起きる可能性のある処理をtryの中に書く
+		//例外が起きた場合の処理をcatchの中に書く
 		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
 		try {
 
@@ -355,6 +392,7 @@ public class TestUserDAO {
 	public void delete(String name) {
 
 		//DBへの接続準備、DBと会話するためのコード、これでログインできる
+		//Connectionは特定のデータベースとの接続
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
@@ -364,9 +402,13 @@ public class TestUserDAO {
 		//test2_tableに入っているデータuser_name=? のデータを削除する
 		String sql = "delete from test2_table where user_name = ?";
 
+		//例外が起きる可能性のある処理をtryの中に書く
+		//例外が起きた場合の処理をcatchの中に書く
 		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
 		try {
 
+			//プリコンパイル＝ある中心的な処理を行うプログラムに対して、その前処理（preprocess）を行うプログラム
+			//プリコンパイルされた SQL 文を表すオブジェクトで、この文を複数回効率的に実行する目的で使用できる
 			//PreparedStatementとは DB まで運んでくれる箱
 			PreparedStatement ps = con.prepareStatement(sql);
 
@@ -387,6 +429,8 @@ public class TestUserDAO {
 			e.printStackTrace();
 		}
 
+		//例外が起きる可能性のある処理をtryの中に書く
+		//例外が起きた場合の処理をcatchの中に書く
 		//tryの中でエラーが発生した場合に、catchが受け取り、printStackTraceでエラーに至る履歴を表示してくれる
 		try {
 
